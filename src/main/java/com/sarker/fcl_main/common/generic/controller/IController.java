@@ -4,6 +4,8 @@ import com.sarker.fcl_main.common.generic.entity.AbstractEntity;
 import com.sarker.fcl_main.common.generic.payload.request.IDto;
 import com.sarker.fcl_main.common.generic.payload.request.SDto;
 import com.sarker.fcl_main.common.generic.payload.response.MessageResponse;
+import com.sarker.fcl_main.common.generic.payload.response.PageData;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
 public interface IController<E extends AbstractEntity, D extends IDto, S extends SDto> {
@@ -14,6 +16,8 @@ public interface IController<E extends AbstractEntity, D extends IDto, S extends
 
     ResponseEntity<MessageResponse> updateActiveStatus(Long id, Boolean isActive);
 
-     <T> T getSingle(Long id);
+    <T> T getSingle(Long id);
+
+    PageData<E> getAll(Boolean isActive, Pageable pageable);
 
 }
