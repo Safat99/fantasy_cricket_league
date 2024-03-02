@@ -6,8 +6,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
+import java.util.Collection;
+import java.util.List;
+
 @NoRepositoryBean
-public interface BaseRepository<E extends BaseEntity> extends JpaRepository<E, Long> {
+public interface AbstractRepository<E extends BaseEntity> extends JpaRepository<E, Long> {
 
     Page<E> findAllByIsActive(Boolean isActive, Pageable pageable);
+
+    List<E> findAllByIdIn(Collection<Long> ids);
 }
