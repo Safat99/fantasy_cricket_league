@@ -25,7 +25,7 @@ public interface IService<E extends AbstractEntity, D extends IDto, S extends SD
 
     <T> T getSingle(Long id);
 
-    PageData<E> getAll(Boolean isActive, Pageable pageable);
+    PageData<?> getAll(Boolean isActive, Pageable pageable);
 
     void updateActiveStatus(Long id, Boolean b);
 
